@@ -91,12 +91,13 @@
   .degent-read .dr-lbl{font-size:11.5px;font-weight:800;letter-spacing:.11em;color:#2fe08a}
   .degent-read p{font-size:14.5px;line-height:1.55;color:var(--muted2);margin:7px 0 0}
   .degent-read p b{color:#fff}
+  .degent-read .dr-verdict{display:block;margin-top:11px;padding:10px 12px;background:#15171d;border:1px solid #3a3f4d;border-radius:10px;color:#fff;font-size:15px;font-weight:800;line-height:1.4}
   .plain-note{text-align:center;font-size:12.5px;color:var(--muted);margin:12px 0 0}
   .plain-note b{color:#e8f1ff}
 
   .pv-strip{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-  .pv-yes{background:var(--grad);color:#fff;border-radius:20px;padding:17px 8px;text-align:center;font-weight:800;font-size:16.5px;text-decoration:none;display:block}
-  .pv-no{background:var(--grey-btn);color:var(--grey-txt);border-radius:20px;padding:17px 8px;text-align:center;font-weight:800;font-size:16.5px;text-decoration:none;display:block}
+  .pv-yes{background:var(--grey-btn);color:#fff;border-radius:20px;padding:17px 8px;text-align:center;font-weight:800;font-size:16.5px;text-decoration:none;display:block}
+  .pv-no{background:var(--grey-btn);color:#fff;border-radius:20px;padding:17px 8px;text-align:center;font-weight:800;font-size:16.5px;text-decoration:none;display:block}
   .jup-note{grid-column:1/-1;font-size:12px;color:var(--muted);margin:2px 0 0;line-height:1.45}
   a.pill{text-decoration:none;display:block}
 
@@ -156,8 +157,8 @@
   .prices{display:flex;gap:6px}
   .pill{font-size:12.5px;font-weight:800;border-radius:10px;padding:8px 9px;text-align:center;min-width:60px;line-height:1.15}
   .pill small{display:block;font-size:9px;letter-spacing:.07em;font-weight:700}
-  .pill.y{background:rgba(47,224,138,.13);color:#4ade80;border:1px solid rgba(47,224,138,.35)}
-  .pill.n{background:var(--grey-btn);color:var(--grey-txt);border:1px solid #2e3038}
+  .pill.y{background:var(--grey-btn);color:#fff;border:1px solid #2e3038}
+  .pill.n{background:var(--grey-btn);color:#fff;border:1px solid #2e3038}
   @media(max-width:480px){ .mkt-row{grid-template-columns:1fr} .prices{width:100%} .pill{flex:1} }
 
   .scale{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
@@ -248,7 +249,7 @@
             </div>
             <div class="degent-read" id="pvDegentRead">
               <span class="dr-lbl">DEGENT READ</span>
-              <p id="pvDegentReadText">The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>16c</b>. At 16c, the crowd is saying the Colts win about 16 times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.</p>
+              <p id="pvDegentReadText">The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>16c</b>. At 16c, the crowd is saying the Colts win about 16 times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.<span class="dr-verdict">Verdict: Wait, no edge here yet.</span></p>
             </div>
             <div class="pv-strip">
               <a class="pv-yes" id="pvBuyYes" href="https://jup.ag/prediction/POLY-1282887" target="_blank" rel="noopener">BUY YES 16c</a>
@@ -303,7 +304,7 @@
             <div id="pickArea">
               <div class="degent-read" id="degentRead">
                 <span class="dr-lbl">DEGENT READ</span>
-                <p id="degentReadText">The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>16c</b>. At 16c, the crowd is saying the Colts win about 16 times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.</p>
+                <p id="degentReadText">The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>16c</b>. At 16c, the crowd is saying the Colts win about 16 times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.<span class="dr-verdict">Verdict: Wait, no edge here yet.</span></p>
               </div>
               <div class="pick">
                 <a class="pick-btn yes" id="btnYes" href="https://jup.ag/prediction" target="_blank" rel="noopener"><span class="side">Buy Yes</span><span class="price" id="yesPrice">58c</span><span class="small" id="yesPay"></span></a>
@@ -582,7 +583,7 @@
     if(dr){
       if(q.teamA && q.teamA.name.indexOf("Colts") >= 0){
         dr.classList.remove("hidden");
-        $("degentReadText").innerHTML = "The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>" + q.crowd + "c</b>. At " + q.crowd + "c, the crowd is saying the Colts win about " + q.crowd + " times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.";
+        $("degentReadText").innerHTML = "The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>" + q.crowd + "c</b>. At " + q.crowd + "c, the crowd is saying the Colts win about " + q.crowd + " times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.<span class=\"dr-verdict\">Verdict: Wait, no edge here yet.</span>";
       } else {
         dr.classList.add("hidden");
       }
@@ -794,7 +795,7 @@
     if(pdr){
       if(first.teamA && first.teamA.name.indexOf("Colts") >= 0){
         pdr.classList.remove("hidden");
-        $("pvDegentReadText").innerHTML = "The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>" + first.crowd + "c</b>. At " + first.crowd + "c, the crowd is saying the Colts win about " + first.crowd + " times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.";
+        $("pvDegentReadText").innerHTML = "The crowd ran the Colts up to <b>28.5c</b> this week, then sold them back down to <b>" + first.crowd + "c</b>. At " + first.crowd + "c, the crowd is saying the Colts win about " + first.crowd + " times out of 100. The Degent only buys when the models price a team <b>5c or more</b> above the crowd. The models are not wired in yet, so there is no model price on this one and no call from the Degent. Just a crowd that has gone cold.<span class=\"dr-verdict\">Verdict: Wait, no edge here yet.</span>";
       } else {
         pdr.classList.add("hidden");
       }
